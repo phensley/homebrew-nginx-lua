@@ -61,6 +61,7 @@ class NginxLua < Formula
 
     args = ["--prefix=#{prefix}",
       "--with-http_ssl_module",
+      "--with-luajit",
       "--with-pcre",
       "--with-pcre-jit",
       "--with-http_gunzip_module",
