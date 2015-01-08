@@ -3,7 +3,7 @@ Nginx + Lua
 Installation
 
     brew tap phensley/nginx-lua
-    brew install --debug --verbose nginx_lua
+    brew install --debug --verbose nginx-lua
 
 Sanity check
 
