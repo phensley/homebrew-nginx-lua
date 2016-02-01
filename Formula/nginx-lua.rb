@@ -41,6 +41,11 @@ class NginxLua < Formula
     sha1 'cb34250a30e2f16cbc5ecb2580fdcbaa80321bad'
   end
 
+  resource "upstream_cache" do
+    url  "http://glonk.com/lua-upstream-cache-nginx-module.tar.gz"
+    sha1 '9d53f81bb3ccaf7270ddeab65462febae3635b8e'
+  end
+
   depends_on 'openssl'
   depends_on 'pcre'
   depends_on 'geoip' => :optional
@@ -76,7 +81,7 @@ class NginxLua < Formula
     args << "--with-http_dav_module" if build.with? 'webdav'
     args << "--with-http_geoip_module" if build.with? 'geoip'
 
-    %w[upstream_check jvm_route lua_idn lua_marshal lua_mongo lua_healthcheck].each do |r|
+    %w[upstream_check jvm_route lua_idn lua_marshal lua_mongo lua_healthcheck upstream_cache].each do |r|
       resource(r).stage do
         (buildpath+r).install Dir["*"]
       end
@@ -89,6 +94,7 @@ class NginxLua < Formula
 
     args << "--add-module=#{buildpath}/upstream_check"
     args << "--add-module=#{buildpath}/jvm_route"
+    args << "--add-module=#{buildpath}/upstream_cache"
 
     # Debugging mode, unfortunately without debugging symbols
     if build.with? 'debug'
