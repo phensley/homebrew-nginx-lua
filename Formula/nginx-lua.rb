@@ -1,11 +1,15 @@
 require 'formula'
 
+
 # renamed to distinguish it from other openresty formulas
 class NginxLua < Formula
   homepage 'http://openresty.org/'
 
   S3BASE = "http://s3.amazonaws.com/v6.nginx/sources"
   GLONK = 'http://glonk.com'
+
+  # this tracks the centos rpm's version number
+  NGINX_VERSION = '0.1.1'
 
   stable do
     url 'https://openresty.org/download/openresty-1.9.7.3.tar.gz'
@@ -124,6 +128,15 @@ class NginxLua < Formula
     # install a few extra lua modules
     cp buildpath/"lua_idn/idn.lua", prefix/"lualib/"
     cp_r buildpath/"lua_mongo/lib/resty/mongol", prefix/"lualib/resty/"
+
+    (prefix/"lualib/squarespace.lua").write(lua_module())
+  end
+
+  def lua_module()
+    <<-EOS.undent
+    module('squarespace', package.seeall)
+    nginx_version = "#{NGINX_VERSION}"
+    EOS
   end
 end
 
