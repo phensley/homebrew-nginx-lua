@@ -6,13 +6,12 @@ class NginxLua < Formula
   homepage 'http://openresty.org/'
 
   S3BASE = "http://s3.amazonaws.com/v6.nginx/sources"
-  GLONK = 'http://glonk.com'
 
   # this tracks the centos rpm's version number
   NGINX_VERSION = '0.1.1'
 
   stable do
-    url 'https://openresty.org/download/openresty-1.9.7.3.tar.gz'
+    url "#{S3BASE}/openresty-1.9.7.3.tar.gz"
     sha1 '1a2029e1c854b6ac788b4d734dd6b5c53a3987ff'
   end
 
@@ -43,12 +42,12 @@ class NginxLua < Formula
   end
 
   resource "lua_healthcheck" do
-    url "#{GLONK}/lua-resty-upstream-healthcheck.tar.gz"
+    url "#{S3BASE}/lua-resty-upstream-healthcheck.tar.gz"
     sha1 '609c925e3c4611114a76222ca916722d7319736d'
   end
 
   resource "upstream_cache" do
-    url  "#{GLONK}/lua-upstream-cache-nginx-module.tar.gz"
+    url  "#{S3BASE}/lua-upstream-cache-nginx-module.tar.gz"
     sha1 '9d53f81bb3ccaf7270ddeab65462febae3635b8e'
   end
 
