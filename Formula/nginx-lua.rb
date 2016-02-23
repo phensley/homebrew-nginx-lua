@@ -8,7 +8,7 @@ class NginxLua < Formula
   S3BASE = "http://s3.amazonaws.com/v6.nginx/sources"
 
   # this tracks the centos rpm's version number
-  NGINX_VERSION = '0.1.1'
+  NGINX_VERSION = '0.1.2'
 
   stable do
     url "#{S3BASE}/openresty-1.9.7.3.tar.gz"
