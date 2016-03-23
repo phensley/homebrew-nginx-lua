@@ -8,11 +8,11 @@ class NginxLua < Formula
   S3BASE = "http://s3.amazonaws.com/v6.nginx/sources"
 
   # this tracks the centos rpm's version number
-  NGINX_VERSION = '0.1.2'
+  NGINX_VERSION = '0.2.0'
 
   stable do
-    url "#{S3BASE}/openresty-1.9.7.3.tar.gz"
-    sha1 '1a2029e1c854b6ac788b4d734dd6b5c53a3987ff'
+    url "#{S3BASE}/openresty-1.9.7.4.tar.gz"
+    sha256 'aa5dcae035dda6e483bc1bd3d969d7113205dc2d0a3702ece0ad496c88a653c5'
   end
 
 # replaced by pure lua healthcheck module
@@ -23,32 +23,32 @@ class NginxLua < Formula
 
   resource "jvm_route" do
     url "#{S3BASE}/nginx-upstream-jvm-route.tar.gz"
-    sha1 '2b68b0a511d04b86d24fe76b26acc333e0bf8abe'
+    sha256 '76be164dedc677965d9ee630def956b12eb3bc25643b0d56f215a78027238caa'
   end
 
   resource "lua_idn" do
     url "#{S3BASE}/lua-idn.tar.gz"
-    sha1 'e1ae68f27f8120be317712eb7c094ae7814c15be'
+    sha256 'cdd9c090cc05014cbb2844730a33d9bd5f1bb3cfa85facd75f977f96e0056006'
   end
 
   resource "lua_marshal" do
     url "#{S3BASE}/lua-marshal.tar.gz"
-    sha1 '3f12977cbce9ebcfd69cf3c76aa5cd835abfc40d'
+    sha256 '19a4ed63717409eff460b444510ec8a684115a0f47dded60ebed542672f1500b'
   end
 
   resource "lua_mongo" do
     url "#{S3BASE}/lua-resty-mongol.tar.gz"
-    sha1 '5660aa39886f179bf5e4e502218f2be2aa1a802b'
+    sha256 '2a09250b1f9903ef4cbe65c8cf0928efeab3a473d1feb2f6dcbcc09b7d692cc8'
   end
 
   resource "lua_healthcheck" do
     url "#{S3BASE}/lua-resty-upstream-healthcheck.tar.gz"
-    sha1 '609c925e3c4611114a76222ca916722d7319736d'
+    sha256 'ce1b62d13a888520e9e8cfd470a230df2d0d43faa8a31921ceb2c34c4e918deb'
   end
 
   resource "upstream_cache" do
     url  "#{S3BASE}/lua-upstream-cache-nginx-module.tar.gz"
-    sha1 '9d53f81bb3ccaf7270ddeab65462febae3635b8e'
+    sha256 'abdf446981a683120a40028af59cb00677d2b55e66ecbd6d665b3926b751f897'
   end
 
   depends_on 'openssl'
