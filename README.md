@@ -7,7 +7,7 @@ Installation
 
 Sanity check
 
-    ls -l $(brew --prefix)/Cellar/nginx-lua/1.7.7.1/
+    ls -l $(brew --prefix)/Cellar/nginx-lua/1.9.7.4
 
 Startup
 
