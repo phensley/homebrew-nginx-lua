@@ -68,6 +68,7 @@ class NginxLua < Formula
       '--with-luajit',
       '--with-pcre',
       '--with-pcre-jit',
+      '--with-http_v2_module',
       '--with-http_gunzip_module',
       '--with-http_realip_module',
       '--with-http_geoip_module',
